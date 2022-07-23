@@ -1,6 +1,7 @@
 package com.hanghae.week03.controller;
 
 import com.hanghae.week03.model.Post;
+import com.hanghae.week03.model.PostPasswordRequestDto;
 import com.hanghae.week03.model.PostRepository;
 import com.hanghae.week03.model.PostRequestDto;
 import com.hanghae.week03.service.PostService;
@@ -40,5 +41,11 @@ public class PostController {
     @DeleteMapping("/api/posts/{id}")
     public void deletePost(@PathVariable Long id) {
         postRepository.deleteById(id);
+    }
+
+    @PostMapping("/api/posts/{id}")
+    public boolean checkPassword(@PathVariable Long id, @RequestBody PostPasswordRequestDto requestDto) {
+        Post post = postRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("아이디가 존재하지 않습니다."));
+        return post.getPassword().equals(requestDto.getPassword());
     }
 }
