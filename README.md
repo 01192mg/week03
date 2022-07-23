@@ -6,7 +6,7 @@
 
 ### **요구사항**
 
-1. [ ] 아래의 요구사항을 기반으로 Use Case 그려보기
+1. [x] 아래의 요구사항을 기반으로 Use Case 그려보기
     - 손으로 그려도 됩니다.
     - cf. [https://narup.tistory.com/70](https://narup.tistory.com/70)
 2. [ ] 전체 게시글 목록 조회 API
