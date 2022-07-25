@@ -43,4 +43,8 @@ public class PostResponseService {
         responseDto.setSuccess(true);
         responseDto.setError(null);
     }
+
+    public PostSingleResponseDto getErrorResponse(String code, String message) {
+        return new PostSingleResponseDto(code, message);
+    }
 }

@@ -11,4 +11,9 @@ public class PostSingleResponseDto extends CommonResponseDto {
     public PostSingleResponseDto(Post post) {
         this.data = new PostResponseDto(post);
     }
+
+    public PostSingleResponseDto(String code, String message) {
+        this.data = null;
+        this.setError(new Error(code, message));
+    }
 }
