@@ -31,4 +31,13 @@ public class PostService {
     public Post find(Long id) {
         return postRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("아이디가 존재하지 않습니다."));
     }
+
+    public void delete(Long id) {
+        postRepository.deleteById(id);
+    }
+
+    public boolean checkPassword(Long id, PostPasswordRequestDto requestDto) {
+        Post post = postRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("아이디가 존재하지 않습니다."));
+        return post.getPassword().equals(requestDto.getPassword());
+    }
 }

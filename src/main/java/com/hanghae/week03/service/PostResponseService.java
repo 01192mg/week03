@@ -27,6 +27,18 @@ public class PostResponseService {
         return postSingleResponseDto;
     }
 
+    public PostBooleanResponseDto getPostBooleanResponseDto() {
+        PostBooleanResponseDto postBooleanResponseDto = new PostBooleanResponseDto();
+        setSuccessResponse(postBooleanResponseDto);
+        return postBooleanResponseDto;
+    }
+
+    public PostBooleanResponseDto getPostBooleanResponseDto(boolean data) {
+        PostBooleanResponseDto postBooleanResponseDto = new PostBooleanResponseDto(data);
+        setSuccessResponse(postBooleanResponseDto);
+        return postBooleanResponseDto;
+    }
+
     private void setSuccessResponse(CommonResponseDto responseDto) {
         responseDto.setSuccess(true);
         responseDto.setError(null);

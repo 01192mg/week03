@@ -10,10 +10,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class PostController {
 
-    private final PostRepository postRepository;
     private final PostService postService;
     private final PostResponseService postResponseService;
-
 
     @GetMapping("/api/posts")
     public PostListResponseDto getPosts() {
@@ -37,13 +35,13 @@ public class PostController {
     }
 
     @DeleteMapping("/api/posts/{id}")
-    public void deletePost(@PathVariable Long id) {
-        postRepository.deleteById(id);
+    public PostBooleanResponseDto deletePost(@PathVariable Long id) {
+        postService.delete(id);
+        return postResponseService.getPostBooleanResponseDto();
     }
 
     @PostMapping("/api/posts/{id}")
-    public boolean checkPassword(@PathVariable Long id, @RequestBody PostPasswordRequestDto requestDto) {
-        Post post = postRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("아이디가 존재하지 않습니다."));
-        return post.getPassword().equals(requestDto.getPassword());
+    public PostBooleanResponseDto checkPassword(@PathVariable Long id, @RequestBody PostPasswordRequestDto requestDto) {
+        return postResponseService.getPostBooleanResponseDto(postService.checkPassword(id, requestDto));
     }
 }
