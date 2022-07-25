@@ -1,14 +1,10 @@
 package com.hanghae.week03.controller;
 
-import com.hanghae.week03.model.Post;
-import com.hanghae.week03.model.PostPasswordRequestDto;
-import com.hanghae.week03.model.PostRepository;
-import com.hanghae.week03.model.PostRequestDto;
+import com.hanghae.week03.model.*;
+import com.hanghae.week03.service.PostResponseService;
 import com.hanghae.week03.service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
@@ -16,10 +12,12 @@ public class PostController {
 
     private final PostRepository postRepository;
     private final PostService postService;
+    private final PostResponseService postResponseService;
+
 
     @GetMapping("/api/posts")
-    public List<Post> getPosts() {
-        return postRepository.findAllByOrderByCreatedAtDesc();
+    public PostListResponseDto getPosts() {
+        return postResponseService.getPostListResponse(postService.getPosts());
     }
 
     @PostMapping("/api/posts")
