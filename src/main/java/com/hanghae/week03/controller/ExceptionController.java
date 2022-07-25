@@ -1,7 +1,8 @@
-package com.hanghae.week03.service;
+package com.hanghae.week03.controller;
 
 import com.hanghae.week03.exception.InvalidIdException;
 import com.hanghae.week03.model.PostSingleResponseDto;
+import com.hanghae.week03.service.PostResponseService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
