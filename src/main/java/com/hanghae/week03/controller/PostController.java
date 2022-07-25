@@ -17,23 +17,23 @@ public class PostController {
 
     @GetMapping("/api/posts")
     public PostListResponseDto getPosts() {
-        return postResponseService.getPostListResponse(postService.getPosts());
+        return postResponseService.getPostListResponseDto(postService.getPosts());
     }
 
     @PostMapping("/api/posts")
-    public Post createPost(@RequestBody PostRequestDto requestDto) {
+    public PostSingleResponseDto createPost(@RequestBody PostRequestDto requestDto) {
         Post post = new Post(requestDto);
-        return postRepository.save(post);
+        return postResponseService.getPostSingleResponseDto(postService.save(post));
     }
 
     @GetMapping("/api/posts/{id}")
-    public Post getPost(@PathVariable Long id) {
-        return postRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("아이디가 존재하지 않습니다."));
+    public PostSingleResponseDto getPost(@PathVariable Long id) {
+        return postResponseService.getPostSingleResponseDto(postService.find(id));
     }
 
     @PutMapping("/api/posts/{id}")
-    public Post updatePost(@PathVariable Long id, @RequestBody PostRequestDto requestDto) {
-        return postService.update(id, requestDto);
+    public PostSingleResponseDto updatePost(@PathVariable Long id, @RequestBody PostRequestDto requestDto) {
+        return postResponseService.getPostSingleResponseDto(postService.update(id, requestDto));
     }
 
     @DeleteMapping("/api/posts/{id}")
