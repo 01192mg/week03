@@ -1,5 +1,6 @@
-package com.hanghae.week03.model;
+package com.hanghae.week03.dto;
 
+import com.hanghae.week03.model.Post;
 import lombok.Getter;
 
 import java.time.LocalDateTime;

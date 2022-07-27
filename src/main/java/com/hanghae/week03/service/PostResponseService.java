@@ -1,5 +1,7 @@
 package com.hanghae.week03.service;
 
+import com.hanghae.week03.dto.*;
+import com.hanghae.week03.exception.Exception;
 import com.hanghae.week03.model.*;
 import org.springframework.stereotype.Service;
 
@@ -27,12 +29,6 @@ public class PostResponseService {
         return postSingleResponseDto;
     }
 
-    public PostBooleanResponseDto getPostBooleanResponseDto() {
-        PostBooleanResponseDto postBooleanResponseDto = new PostBooleanResponseDto();
-        setSuccessResponse(postBooleanResponseDto);
-        return postBooleanResponseDto;
-    }
-
     public PostBooleanResponseDto getPostBooleanResponseDto(boolean data) {
         PostBooleanResponseDto postBooleanResponseDto = new PostBooleanResponseDto(data);
         setSuccessResponse(postBooleanResponseDto);
@@ -44,7 +40,7 @@ public class PostResponseService {
         responseDto.setError(null);
     }
 
-    public PostSingleResponseDto getErrorResponse(String code, String message) {
-        return new PostSingleResponseDto(code, message);
+    public PostSingleResponseDto getErrorResponse(Exception e) {
+        return new PostSingleResponseDto(e);
     }
 }

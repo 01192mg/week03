@@ -1,4 +1,4 @@
-package com.hanghae.week03.model;
+package com.hanghae.week03.dto;
 
 import lombok.Getter;
 

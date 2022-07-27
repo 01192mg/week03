@@ -1,4 +1,4 @@
-package com.hanghae.week03.model;
+package com.hanghae.week03.dto;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -7,10 +7,6 @@ import lombok.Setter;
 @Setter
 public class PostBooleanResponseDto extends CommonResponseDto {
     private boolean data;
-
-    public PostBooleanResponseDto() {
-        this.data = true;
-    }
 
     public PostBooleanResponseDto(boolean data) {
         this.data = data;

@@ -1,5 +1,6 @@
 package com.hanghae.week03.model;
 
+import com.hanghae.week03.dto.PostRequestDto;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

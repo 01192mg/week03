@@ -1,5 +1,6 @@
 package com.hanghae.week03.controller;
 
+import com.hanghae.week03.dto.*;
 import com.hanghae.week03.model.*;
 import com.hanghae.week03.service.PostResponseService;
 import com.hanghae.week03.service.PostService;
@@ -36,8 +37,7 @@ public class PostController {
 
     @DeleteMapping("/api/posts/{id}")
     public PostBooleanResponseDto deletePost(@PathVariable Long id) {
-        postService.delete(id);
-        return postResponseService.getPostBooleanResponseDto();
+        return postResponseService.getPostBooleanResponseDto(postService.delete(id));
     }
 
     @PostMapping("/api/posts/{id}")

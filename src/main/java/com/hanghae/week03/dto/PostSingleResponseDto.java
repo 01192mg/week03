@@ -1,5 +1,8 @@
-package com.hanghae.week03.model;
+package com.hanghae.week03.dto;
 
+import com.hanghae.week03.exception.Exception;
+import com.hanghae.week03.model.Error;
+import com.hanghae.week03.model.Post;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,8 +15,8 @@ public class PostSingleResponseDto extends CommonResponseDto {
         this.data = new PostResponseDto(post);
     }
 
-    public PostSingleResponseDto(String code, String message) {
+    public PostSingleResponseDto(Exception e) {
         this.data = null;
-        this.setError(new Error(code, message));
+        this.setError(new Error(e));
     }
 }

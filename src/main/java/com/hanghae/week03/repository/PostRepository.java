@@ -1,5 +1,6 @@
-package com.hanghae.week03.model;
+package com.hanghae.week03.repository;
 
+import com.hanghae.week03.model.Post;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
